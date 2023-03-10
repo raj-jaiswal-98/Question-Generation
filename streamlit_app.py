@@ -15,8 +15,11 @@ def set_seed(seed):
 
 set_seed(98)
 
-tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5_boolean_questions")
-model = AutoModelForSeq2SeqLM.from_pretrained("ramsrigouthamg/t5_boolean_questions")
+# tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5_boolean_questions")
+# model = AutoModelForSeq2SeqLM.from_pretrained("ramsrigouthamg/t5_boolean_questions")
+tokenizer = pickle.load(open('tokenizer.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # print ("device ",device)
